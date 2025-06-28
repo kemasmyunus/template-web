@@ -23,5 +23,22 @@
             </ul>
         </li>
 
+        <li class="menu-item">
+            <a href="pages/catatan.php">
+                <div class="menu-link-content">
+                    <span class="icon"><i class="fas fa-sticky-note"></i></span>
+                    <span class="text">Catatan</span>
+                </div>
+            </a>
+        </li>
+
+        <li class="menu-item">
+            <a href="logout.php">
+                <div class="menu-link-content">
+                    <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                    <span class="text">Logout</span>
+                </div>
+            </a>
+        </li>
     </ul>
 </aside>

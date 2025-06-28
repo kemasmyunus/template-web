@@ -21,7 +21,7 @@ body {
     min-height: 100vh;
 }
 
-/* Header */
+/* HEADER */
 .main-header {
     background-color: var(--sidebar-bg);
     color: var(--text-light);
@@ -46,7 +46,7 @@ body {
     background-color: var(--submenu-bg);
 }
 
-/* Footer */
+/* FOOTER */
 .main-footer {
     background-color: var(--sidebar-bg);
     color: var(--text-light);
@@ -55,13 +55,13 @@ body {
     margin-top: auto;
 }
 
-/* Layout */
+/* LAYOUT */
 .main-container {
     display: flex;
     flex: 1;
 }
 
-/* Sidebar */
+/* SIDEBAR */
 .sidebar {
     width: 250px;
     background-color: var(--sidebar-bg);
@@ -86,6 +86,7 @@ body {
     width: 100%;
 }
 
+/* MENU LINK */
 .menu-link-content {
     display: flex;
     align-items: center;
@@ -104,19 +105,16 @@ body {
 .icon i {
     min-width: 20px;
     text-align: center;
+    font-size: 1.1em;
 }
 
 .arrow {
     margin-left: auto;
-    transition: transform 0.3s ease;
 }
 
-.submenu-toggle.collapsed .arrow i {
-    transform: rotate(0deg);
-}
-
-.submenu-toggle.expanded .arrow i {
-    transform: rotate(90deg);
+.arrow i {
+    font-size: 1em;
+    transition: color 0.2s ease;
 }
 
 .sidebar.collapsed .text,
@@ -124,21 +122,24 @@ body {
     display: none;
 }
 
-/* Submenu */
+/* SUBMENU */
 .submenu {
     background-color: var(--submenu-bg);
     overflow: hidden;
     max-height: 0;
     transition: max-height 0.3s ease;
+    padding: 0;
+    margin: 0;
 }
 
 .submenu.expanded {
-    max-height: 300px;
+    max-height: 500px; /* cukup besar untuk semua isi submenu */
+    padding: 5px 0;
 }
 
 .submenu li a {
     display: block;
-    padding: 10px 46px; /* 16px base + 30px indent */
+    padding: 10px 46px;
     color: var(--text-dark);
     text-decoration: none;
     transition: background-color 0.2s ease;
@@ -149,7 +150,7 @@ body {
     color: var(--text-light);
 }
 
-/* Content */
+/* CONTENT */
 .content {
     flex: 1;
     padding: 20px;

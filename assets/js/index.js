@@ -3,27 +3,45 @@ function toggleSidebar() {
     sidebar.classList.toggle('collapsed');
 
     if (sidebar.classList.contains('collapsed')) {
-        document.querySelectorAll('.submenu').forEach(sm => sm.classList.remove('expanded'));
-        document.querySelectorAll('.submenu-toggle').forEach(st => {
-            st.classList.remove('expanded');
-            st.classList.add('collapsed');
+        document.querySelectorAll('.submenu').forEach(sub => sub.classList.remove('expanded'));
+        document.querySelectorAll('.submenu-toggle').forEach(toggle => {
+            toggle.classList.remove('expanded');
+            toggle.classList.add('collapsed');
+
+            const arrowIcon = toggle.querySelector('.arrow i');
+            if (arrowIcon) {
+                arrowIcon.classList.remove('fa-angle-down');
+                arrowIcon.classList.add('fa-angle-right');
+            }
         });
     }
 }
 
 function toggleSubmenu(element) {
     const submenu = element.nextElementSibling;
-    submenu.classList.toggle('expanded');
+    const arrowIcon = element.querySelector('.arrow i');
 
     element.classList.toggle('expanded');
     element.classList.toggle('collapsed');
 
-    const arrowIcon = element.querySelector('.arrow i');
-    if (arrowIcon.classList.contains('fa-angle-right')) {
-        arrowIcon.classList.remove('fa-angle-right');
-        arrowIcon.classList.add('fa-angle-down');
+    if (submenu.classList.contains('expanded')) {
+        // TUTUP submenu
+        submenu.style.maxHeight = null;
+        submenu.classList.remove('expanded');
+
+        if (arrowIcon) {
+            arrowIcon.classList.remove('fa-angle-down');
+            arrowIcon.classList.add('fa-angle-right');
+        }
     } else {
-        arrowIcon.classList.remove('fa-angle-down');
-        arrowIcon.classList.add('fa-angle-right');
+        // BUKA submenu
+        submenu.classList.add('expanded');
+        submenu.style.maxHeight = submenu.scrollHeight + "px";
+
+        if (arrowIcon) {
+            arrowIcon.classList.remove('fa-angle-right');
+            arrowIcon.classList.add('fa-angle-down');
+        }
     }
 }
+
